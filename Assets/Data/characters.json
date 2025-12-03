@@ -1,0 +1,12 @@
+[
+    { "id" : 1, "characterName" : "ARio", "hp" : 500, "attack" : 50, "cost" : 1, "ability" : "Strong Punch" },
+    { "id" : 2, "characterName" : "BRio", "hp" : 500, "attack" : 50, "cost" : 2, "ability" : "Rapid Shot"},
+    { "id" : 3, "characterName" : "CRio", "hp" : 500, "attack" : 50, "cost" : 3, "ability" : "Skill Shot"},
+    { "id" : 4, "characterName" : "DRio", "hp" : 500, "attack" : 50, "cost" : 4, "ability" : "Calm Shot"},
+    { "id" : 5, "characterName" : "ERio", "hp" : 500, "attack" : 50, "cost" : 2, "ability" : "Final Shot"}
+
+
+
+
+    
+]

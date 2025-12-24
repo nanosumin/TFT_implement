@@ -1,0 +1,6 @@
+[
+    { "id" : 100, "itemName" : "Sword", "effect" : "Increase attack by 20%" },
+    { "id" : 101, "itemName" : "Belt", "effect" : "Increase HP by 30%"  },
+    { "id" : 102, "itemName" : "Bow", "effect" : "Increase attack speed by 15%" },
+    { "id" : 103, "itemName" : "Wand", "effect" : "Increase magic damage by 20%" }
+]

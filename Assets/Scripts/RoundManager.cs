@@ -74,7 +74,7 @@ public class RoundManager : MonoBehaviour
         currentState = GameState.Resolution;
         UpdateStatusUI("라운드 종료");
 
-        // [문제 해결 1] 골드 지급 로직 확실히 실행
+        //  
         if (ShopManager.Instance != null)
         {
             ShopManager.Instance.gold += 5;

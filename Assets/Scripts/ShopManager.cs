@@ -6,6 +6,10 @@ public class ShopManager : MonoBehaviour
 {
     public static ShopManager Instance;
 
+    [Header("Interest Settings")]
+    public int maxInterest = 5;
+
+
     [Header("Economy")]
     public int gold = 20;
     public Text goldText; // 골드 표시 UI
@@ -15,6 +19,10 @@ public class ShopManager : MonoBehaviour
     public GameObject shopSlotPrefab; // 상점 칸 프리팹
 
     private List<string> unitPool = new List<string> { "warrior_01", "archer_01" };
+
+
+
+
 
     void Awake()
     {
@@ -47,7 +55,7 @@ public class ShopManager : MonoBehaviour
     void CreateShopSlot(string unitId)
     {
         GameObject slot = Instantiate(shopSlotPrefab, shopContainer);
-        
+
         // 버튼에 구매 기능 연결 (임시로 텍스트만 설정)
         slot.GetComponentInChildren<Text>().text = unitId;
         slot.GetComponent<Button>().onClick.AddListener(() => BuyUnit(unitId, slot));
@@ -62,7 +70,7 @@ public class ShopManager : MonoBehaviour
         {
             gold -= cost;
             UpdateGoldUI();
-            
+
             // 유닛을 대기석(0, 0, 0 근처)에 생성
             UnitSpawner.Instance.SpawnUnit(unitId, new Vector3(Random.Range(-2, 2), 0.5f, -2f));
             // 대기석은 추가로 구현할 예정
@@ -72,8 +80,22 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    void UpdateGoldUI()
+    public void CalculateInterest()
     {
-        if (goldText != null) goldText.text = "Gold: " + gold;
+        //라운드가 끝날 때 돈이 들어와야함
+        int baseMoney = 5;
+
+        int interestEarned = gold / 10;
+        if (interestEarned > maxInterest) interestEarned = maxInterest;
+
+
+        gold += (baseMoney + interestEarned);
+        UpdateGoldUI();
+        
+        }
+
+        void UpdateGoldUI()
+        {
+            if (goldText != null) goldText.text = "Gold: " + gold;
+        }
     }
-}
